@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Egor Obukhov</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+
+        <p class="name-mobile">egor obukhov</p>
+
+        <div class="image-container">
+            <div class="image"></div>
+            <div class="overlay-menu">
+                <div class="left-bottom-part" style="background-color: rgba(60, 109, 184, 0.1);"></div>
+                <div class="right-bottom-part" style="background-color: rgba(196, 196, 196, 0);">
+                    <span class="contact"><a href="mailto:percent93@yandex.ru" rel="nofollow">contact me</a></span>
+                </div>
+                <div class="right-top-part" style="background-color: rgba(196, 196, 196, 0.3);"></div>
+                <div class="left-top-part" style="background-color: rgba(60, 109, 184, 0);">
+                    <span class="name">egor obukhov</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-line">
+            <p class="contact-mobile"><a href="mailto:percent93@yandex.ru" rel="nofollow">contact</a></p>
+            <p><span>#</span>php, <span>#</span>yii, <span>#</span>laravel, <span>#</span>mysql, <span>#</span>restapi, <span>#</span>swagger</p>
+        </div>
+    </div>
+
+    <script>
+        $( document ).ready(function() {
+            let $leftBottom = $('.left-bottom-part');
+            let $rightBottom = $('.right-bottom-part'); // name
+            let $rightTop = $('.right-top-part');
+            let $leftTop = $('.left-top-part'); // contact
+
+            let blueColor = $leftBottom.css("background-color");
+            let grayColor = $rightTop.css("background-color");
+
+            $(".contact").on(
+                {
+                    mouseenter: function()
+                    {
+                        $rightBottom.stop( true, true ).animate({backgroundColor: grayColor}, 1200);
+                        $leftTop.stop( true, true ).animate({backgroundColor: blueColor}, 1200);
+
+                        $leftBottom.stop( true, true ).fadeOut(1000);
+                        $rightTop.stop( true, true ).fadeOut(1000);
+                    },
+                    mouseleave: function()
+                    {
+                        $rightBottom.stop( true, true ).animate({backgroundColor: "rgb(196, 196, 196, 0);"}, 1200);
+                        $leftTop.stop( true, true ).animate({backgroundColor: "rgb(60, 109, 184, 0);"}, 1200);
+
+                        $leftBottom.stop( true, true ).fadeIn(1000);
+                        $rightTop.stop( true, true ).fadeIn(1000);
+                    }
+                }
+            );
+        });
+
+        // @todo сделать mailto при клике на contact me // пока без форм всяких
+
+        // @todo всплывашки c текстом по нажатиею на хештеги
+
+    </script>
+</body>
+</html>
